@@ -2,7 +2,13 @@
 
 ## Descrição
 
-O projeto **API Fluxo** é uma aplicação desenvolvida em Java utilizando o framework Spring Boot. Esta API é projetada para gerenciar operações relacionadas a produtos, lotes e usuários, oferecendo funcionalidades como cadastro, atualização, exclusão e listagem de informações.
+O Fluxo é um sistema completo para gestão inteligente de estoques, desenvolvido como solução para o controle de operações logísticas. Esta API constitui o núcleo backend do sistema, responsável por:
+
+- Integrar o frontend com o banco de dados PostgreSQL
+
+- Fornecer endpoints RESTful para operações críticas
+
+- Garantir a segurança das transações através de JWT
 
 ## Funcionalidades
 
