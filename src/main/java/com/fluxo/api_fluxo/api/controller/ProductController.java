@@ -1,5 +1,7 @@
 package com.fluxo.api_fluxo.api.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fluxo.api_fluxo.api.dto.product.CategoryResponseDTO;
 import com.fluxo.api_fluxo.api.dto.product.FetchProductsPageDTO;
 import com.fluxo.api_fluxo.api.dto.product.ProductPatchDTO;
 import com.fluxo.api_fluxo.api.dto.product.ProductRequestDTO;
@@ -58,6 +61,14 @@ public class ProductController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
+    }
+
+    @GetMapping("/categorias")
+    @Operation(summary = "Listar categorias", description = "Retorna todas as categorias cadastradas")
+    @ApiResponse(responseCode = "200", description = "Lista de categorias retornada")
+    public ResponseEntity<List<CategoryResponseDTO>> getAllCategories() {
+
+        return ResponseEntity.ok(productService.fetchAllCategories());
     }
 
     @GetMapping("/consulta/{productId}")

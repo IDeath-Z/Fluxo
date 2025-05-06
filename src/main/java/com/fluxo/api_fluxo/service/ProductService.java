@@ -15,6 +15,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.fluxo.api_fluxo.api.dto.product.CategoryResponseDTO;
 import com.fluxo.api_fluxo.api.dto.product.FetchProductsPageDTO;
 import com.fluxo.api_fluxo.api.dto.product.ProductPatchDTO;
 import com.fluxo.api_fluxo.api.dto.product.ProductRequestDTO;
@@ -147,6 +148,17 @@ public class ProductService {
                                 lotInfoRepository.findByProductId(productId));
         }
         // ---- Método para atualizar um produto existente ---- //
+
+        // ---- Método para retornar todas as categorias cadastradas ---- //
+        public List<CategoryResponseDTO> fetchAllCategories() {
+
+                List<String> allCategories = productInfoRepository.findAllCategories();
+
+                return allCategories.stream()
+                .map(category -> new CategoryResponseDTO(category))
+                .collect(Collectors.toList());
+        }
+        // ---- Método para retornar todas as categorias cadastradas ---- //
 
         // ---- Método para retornar todos os dados do produto pelo id---- //
         public ProductResponseDTO fetchProduct(Integer productId) {
