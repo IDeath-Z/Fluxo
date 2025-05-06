@@ -54,21 +54,22 @@ api_fluxo/
 │   │   │   └── com/
 │   │   │       └── fluxo/
 │   │   │           └── api_fluxo/
-│   │   │               ├── controller/
-│   │   │               ├── dto/
+│   │   │               ├── api/
+│   │   │               │   ├── controller/
+│   │   │               │   └── dto/
+│   │   │               ├── configs/
 │   │   │               ├── domain/
 │   │   │               ├── repositories/
-│   │   │               ├── service/
-│   │   │               └── configs/
+│   │   │               └── service/
 │   │   └── resources/
 │   │       ├── application.properties
-│   │       └── migrations/
+│   │       └── db/
+│   │           └── migrations/
 │   └── test/
 │       └── java/
 │           └── com/
 │               └── fluxo/
 │                   └── api_fluxo/
-│ 
 ├── .gitignore
 ├── Dockerfile
 ├── README.md
