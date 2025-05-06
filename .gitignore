@@ -1,0 +1,55 @@
+# -----------------------
+# Arquivos de sistema OS
+# -----------------------
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+ehthumbs.db
+# Arquivos temporários genéricos
+*~ 
+*.swp 
+
+# -----------------------
+# Build e artefatos Maven
+# -----------------------
+# Diretório padrão de compilação do Maven
+/target/
+/out/
+
+# Arquivos gerados pelo Maven Wrapper
+mvnw
+mvnw.cmd
+.mvn/wrapper/maven-wrapper.jar
+
+# Dependências baixadas automaticamente
+# (não versionar o repositório local do Maven)
+/**/repository/
+
+# Logs de build e perfil
+*.log
+
+# -----------------------
+# Arquivos de IDE
+# -----------------------
+# IntelliJ IDEA
+/.idea/
+/*.iml
+# Eclipse
+/.classpath
+/.project
+/.settings/
+/*.launch
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+# VS Code
+.vscode/
+
+# Ignorar arquivo de variáveis de ambiente
+.env
+.env.*
+!.env.example
