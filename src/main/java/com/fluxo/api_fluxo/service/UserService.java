@@ -1,7 +1,9 @@
 package com.fluxo.api_fluxo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -81,7 +83,15 @@ public class UserService {
     // ---- Método para retornar uma lista paginada de usuários ---- //
     public UserListResponseDTO fetchAllUsers(int page, int size) {
 
-        return new UserListResponseDTO(userRepository.count(), userRepository.findAll(PageRequest.of(page, size))
+        Pageable pageable = PageRequest.of(page, size);
+        Page<User> userPage = userRepository.findAll(pageable);
+
+        if (userPage.isEmpty()) {
+            throw new EntityNotFoundException("Nenhum usuário encontrado");
+        }
+
+        return new UserListResponseDTO(userRepository.count(), userPage.getTotalPages(),
+                userPage
                 .map(this::mapToUserListDTO)
                 .getContent());
     }
