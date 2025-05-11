@@ -81,13 +81,16 @@ public class UserService {
     // ---- Método para retornar todos os dados do usuário pelo id ---- //
 
     // ---- Método para retornar uma lista paginada de usuários ---- //
-    public UserListResponseDTO fetchAllUsers(int page, int size) {
+    public UserListResponseDTO fetchAllUsers(int page, int size, String search) {
 
         Pageable pageable = PageRequest.of(page, size);
-        Page<User> userPage = userRepository.findAll(pageable);
+        Page<User> userPage;
 
-        if (userPage.isEmpty()) {
-            throw new EntityNotFoundException("Nenhum usuário encontrado");
+        if (search != null && !search.isEmpty()) {
+            userPage = userRepository.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(search, search,
+                    pageable);
+        } else {
+            userPage = userRepository.findAll(pageable);
         }
 
         return new UserListResponseDTO(userRepository.count(), userPage.getTotalPages(),

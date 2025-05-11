@@ -104,9 +104,10 @@ public class UserController {
     @ApiResponse(responseCode = "200", description = "Lista retornada com sucesso")
     public ResponseEntity<UserListResponseDTO> getAllUsers(
             @Parameter(description = "Número da página (base 0)") @RequestParam(defaultValue = "0") int page,
-            @Parameter(description = "Tamanho da página (padrão 10)") @RequestParam(defaultValue = "10") int size) {
+            @Parameter(description = "Tamanho da página (padrão 10)") @RequestParam(defaultValue = "10") int size,
+            @Parameter(description = "Filtro de pesquisa (opcional)") @RequestParam(required = false) String search) {
 
-        return ResponseEntity.ok(userService.fetchAllUsers(page, size));
+        return ResponseEntity.ok(userService.fetchAllUsers(page, size, search));
     }
 
     @DeleteMapping("/apagar/{userId}")
