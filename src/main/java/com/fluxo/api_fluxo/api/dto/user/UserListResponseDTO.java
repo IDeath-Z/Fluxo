@@ -6,6 +6,6 @@ import com.fluxo.api_fluxo.api.dto.user.component.UserListDTO;
 
 public record UserListResponseDTO(
                 long totalUsers,
-                List<UserListDTO> UserList) {
+                List<UserListDTO> userList) {
 
 }
