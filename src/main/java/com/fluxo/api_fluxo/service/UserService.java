@@ -130,7 +130,8 @@ public class UserService {
         return new UserListDTO(
                 user.getId(),
                 user.getName(),
-                user.getEmail());
+                user.getEmail(),
+                user.getRole());
     }
     // ---- Método para mapear os dados de resposta do usuário no formato de lista ---- //
 }
