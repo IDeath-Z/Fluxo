@@ -54,7 +54,7 @@ public class UserService {
         }
         if (userPatch.password() != null) {
 
-            user.setPassword(userPatch.password());
+            user.setPassword(passwordEncoder.encode(userPatch.password()));
         }
         if (userPatch.registrationNumber() != null) {
 
