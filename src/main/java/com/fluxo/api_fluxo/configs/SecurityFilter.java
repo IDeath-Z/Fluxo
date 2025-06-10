@@ -9,8 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.fluxo.api_fluxo.repositories.user.UserRepository;
-import com.fluxo.api_fluxo.service.TokenService;
+import com.fluxo.api_fluxo.application.services.TokenService;
+import com.fluxo.api_fluxo.infrastructure.persistence.user.UserRepository;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

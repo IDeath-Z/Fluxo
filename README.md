@@ -13,17 +13,20 @@ O Fluxo é um sistema completo para gestão inteligente de estoques, desenvolvid
 ## Funcionalidades
 
 - **Gerenciamento de Produtos**
+
   - Cadastrar novos produtos
   - Atualizar informações de produtos existentes
   - Listar produtos com suporte a pesquisa
   - Excluir produtos
 
 - **Gerenciamento de Lotes**
+
   - Registrar entradas e saídas de lotes
   - Listar movimentações de estoque
   - Excluir movimentações
 
 - **Gerenciamento de Usuários**
+
   - Cadastrar novos usuários
   - Atualizar informações de usuários
   - Listar usuários
@@ -54,13 +57,19 @@ api_fluxo/
 │   │   │   └── com/
 │   │   │       └── fluxo/
 │   │   │           └── api_fluxo/
-│   │   │               ├── api/
-│   │   │               │   ├── controller/
-│   │   │               │   └── dto/
+│   │   │               ├── adapters/
+│   │   │               │   └── web/
+│   │   │               │       ├── controller/
+│   │   │               │       └── dto/
+│   │   │               │
+│   │   │               ├── application/
+│   │   │               │   └── services/
+│   │   │               │
 │   │   │               ├── configs/
 │   │   │               ├── domain/
-│   │   │               ├── repositories/
-│   │   │               └── service/
+│   │   │               └── infrastructure/
+│   │   │                   └── persistence/
+│   │   │
 │   │   └── resources/
 │   │       ├── application.properties
 │   │       └── db/
@@ -79,18 +88,22 @@ api_fluxo/
 ## Como Executar o Projeto
 
 1. **Clone o repositório:**
+
    ```bash
    git clone https://github.com/IDeath-Z/Fluxo.git
    cd Fluxo
    ```
 
 2. **Configure o banco de dados:**
+
    - Crie um banco de dados PostgreSQL e configure as credenciais no arquivo `application.properties ou através de um arquivo .env`.
 
 3. **Execute as migrações:**
+
    - As migrações do Flyway serão executadas automaticamente ao iniciar a aplicação.
 
 4. **Execute a aplicação:**
+
    ```bash
    ./mvnw spring-boot:run
    ```
